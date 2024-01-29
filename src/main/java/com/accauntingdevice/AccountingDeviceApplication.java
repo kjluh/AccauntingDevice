@@ -3,11 +3,11 @@ package com.accauntingdevice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class AccauntingDeviceApplication {
+@SpringBootApplication()
+public class AccountingDeviceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AccauntingDeviceApplication.class, args);
+        SpringApplication.run(AccountingDeviceApplication.class, args);
     }
 
 }

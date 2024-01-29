@@ -1,5 +1,6 @@
 package com.accauntingdevice.controllers;
 
+import com.accauntingdevice.dto.PlantDTO;
 import com.accauntingdevice.entity.Plant;
 import com.accauntingdevice.service.PlantService;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +18,13 @@ public class PlantController {
     }
 
     @GetMapping
-    public List<Plant> getAll(){
+    public List<PlantDTO> getAll(){
         return plantService.getAll();
     }
 
     @PostMapping
-    public Plant save(@RequestBody Plant plant){
-        return plantService.save(plant);
+    public PlantDTO save(@RequestBody PlantDTO plantDTO){
+        return plantService.save(plantDTO);
     }
 
     @DeleteMapping("/{id}")

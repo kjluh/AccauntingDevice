@@ -1,5 +1,6 @@
 package com.accauntingdevice.controllers;
 
+import com.accauntingdevice.dto.DeviceDTO;
 import com.accauntingdevice.entity.Device;
 
 import com.accauntingdevice.service.DeviceService;
@@ -18,13 +19,13 @@ public class DeviceController {
     }
 
     @GetMapping("/{idPlant}")
-    public List<Device> getAllPlants(@PathVariable(required = false) Long idPlant,
+    public List<DeviceDTO> getAllPlants(@PathVariable(required = false) Long idPlant,
                                      @RequestParam(required = false) String nameDirectorChange){
         return deviceService.getAll(idPlant,nameDirectorChange);
     }
 
     @PostMapping
-    public Device saveDevice(@RequestBody Device device){
+    public DeviceDTO saveDevice(@RequestBody DeviceDTO device){
         return deviceService.save(device);
     }
 
