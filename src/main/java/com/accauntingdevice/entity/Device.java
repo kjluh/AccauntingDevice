@@ -8,6 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Data
+@Table(name = "device")
 public class Device {
 
     @Id

@@ -19,14 +19,15 @@ public class PlantService {
     }
 
     public List<PlantDTO> getAll() {
-        List<PlantDTO> plantDTOS = new ArrayList<>();
+        List<PlantDTO> dtoList = new ArrayList<>();
         for (Plant plant : plantRepository.findAll()) {
             PlantDTO plantDTO = new PlantDTO();
             plantDTO.setAddress(plant.getAddress());
             plantDTO.setName(plant.getName());
             plantDTO.setCreateDate(plant.getCreateDate());
+            dtoList.add(plantDTO);
         }
-        return plantDTOS;
+        return dtoList;
     }
 
     public PlantDTO save(PlantDTO plantDTO) {
