@@ -1,5 +1,7 @@
 package com.accauntingdevice.controllers;
 
+import com.accauntingdevice.dto.DeviceDTO;
+import com.accauntingdevice.dto.PlantDTO;
 import com.accauntingdevice.entity.Device;
 import com.accauntingdevice.entity.Plant;
 import com.accauntingdevice.service.StatisticService;
@@ -20,12 +22,12 @@ public class StatisticController {
     }
 
     @GetMapping("/1")
-    public List<Plant> plantCreateFor7Day(){
+    public List<PlantDTO> plantCreateFor7Day(){
         return service.plantCreateFor7Day();
     }
 
     @GetMapping("/2")
-    public List<Device> last5Device(){
+    public List<DeviceDTO> last5Device(){
         return service.last5Device();
     }
 

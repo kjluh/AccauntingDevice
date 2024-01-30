@@ -1,5 +1,7 @@
 package com.accauntingdevice.service;
 
+import com.accauntingdevice.dto.DeviceDTO;
+import com.accauntingdevice.dto.PlantDTO;
 import com.accauntingdevice.entity.Device;
 import com.accauntingdevice.entity.Plant;
 import com.accauntingdevice.repository.DeviceRepository;
@@ -22,22 +24,36 @@ public class StatisticService {
         this.plantRepository = plantRepository;
     }
 
-    public List<Plant> plantCreateFor7Day() {
-//        List<Device> deviceList = deviceRepository.findAllByFor7Day(LocalDate.now().minusDays(7));
-        List<Plant> plantList = new ArrayList<>();
-//        for (Device device : deviceList) {
-//            plantList.add(plantRepository.findById(device.getPlant().getId()).orElseThrow());
-//        }
+    public List<PlantDTO> plantCreateFor7Day() {
+        List<Long> idPlantList = deviceRepository.findAllByDateCreateAfter(LocalDate.now().minusDays(7));
+        List<PlantDTO> plantList = new ArrayList<>();
+        for (Long aLong : idPlantList) {
+            PlantDTO plantDTO = new PlantDTO();
+            Plant plant = plantRepository.findById(aLong).orElseThrow();
+            plantDTO.setCreateDate(plant.getCreateDate());
+            plantDTO.setAddress(plant.getAddress());
+            plantDTO.setName(plant.getName());
+            plantList.add(plantDTO);
+        }
         return plantList;
     }
 
-    public List<Device> last5Device() {
-//        return deviceRepository.last5Device();
-        return null;
+    public List<DeviceDTO> last5Device() {
+        List<DeviceDTO> deviceDTOList = new ArrayList<>();
+        for (Device device : deviceRepository.last5Device()) {
+            DeviceDTO newDevice = new DeviceDTO();
+            newDevice.setDeviceName(device.getDeviceName());
+            newDevice.setUi(device.getUi());
+            newDevice.setPlantID(device.getPlant().getId());
+            newDevice.setNameDirectorChange(device.getNameDirectorChange());
+            newDevice.setDateCreate(device.getDateCreate());
+            deviceDTOList.add(newDevice);
+        }
+        return deviceDTOList;
     }
 
     public List<Plant> stats(){
-//        deviceRepository.stats(LocalDate.now().minusDays(30));
+//      return deviceRepository.stats(LocalDate.now().minusDays(30));
         return null;
     }
 }

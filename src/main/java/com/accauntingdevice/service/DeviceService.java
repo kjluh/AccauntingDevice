@@ -56,7 +56,7 @@ public class DeviceService {
             newDevice.setPlantID(device.getPlant().getId());
             newDevice.setNameDirectorChange(device.getNameDirectorChange());
             newDevice.setDateCreate(device.getDateCreate());
-            deviceDTOList.add(new DeviceDTO());
+            deviceDTOList.add(newDevice);
         }
         return deviceDTOList;
     }
