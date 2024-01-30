@@ -8,7 +8,6 @@ import java.util.Objects;
 
 @Entity
 @Data
-@Table(name = "plant")
 public class Plant {
 
     @Id

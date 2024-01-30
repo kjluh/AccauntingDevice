@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -22,20 +23,21 @@ public class StatisticService {
     }
 
     public List<Plant> plantCreateFor7Day() {
-        List<Device> deviceList = deviceRepository.findAllByFor7Day(LocalDate.now().minusDays(7));
+//        List<Device> deviceList = deviceRepository.findAllByFor7Day(LocalDate.now().minusDays(7));
         List<Plant> plantList = new ArrayList<>();
-        for (Device device : deviceList) {
-            plantList.add(plantRepository.findById(device.getPlant().getId()).orElseThrow());
-        }
+//        for (Device device : deviceList) {
+//            plantList.add(plantRepository.findById(device.getPlant().getId()).orElseThrow());
+//        }
         return plantList;
     }
 
     public List<Device> last5Device() {
-        return deviceRepository.last5Device();
+//        return deviceRepository.last5Device();
+        return null;
     }
 
     public List<Plant> stats(){
-        deviceRepository.stats(LocalDate.now().minusDays(30));
+//        deviceRepository.stats(LocalDate.now().minusDays(30));
         return null;
     }
 }

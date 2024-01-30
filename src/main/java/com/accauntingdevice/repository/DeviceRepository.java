@@ -14,12 +14,12 @@ public interface DeviceRepository extends JpaRepository<Device,Long> {
     List<Device> findAllByPlantId(Long id);
     List<Device> findAllByNameDirectorChangeContainingIgnoreCase(String nameDirectorChange);
     List<Device> findAllByNameDirectorChangeContainingIgnoreCaseAndPlantId(String nameDirectorChange,Long id);
-    @Query("select d.PLANT_ID,count(d.plant_id) from device d where d.date_create > ?1 group by d.plant_id limit 5")
-    List<Device> findAllByFor7Day(LocalDate localDate);
-
-    @Query("select * from device d order by d.DATE_CREATE desc limit 5")
-    List<Device> last5Device();
-
-    @Query("select d.PLANT_ID,count(d.plant_id) from device d where d.date_create > ?1 group by d.plant_id limit 5")
-    List<Device> stats(LocalDate localDate);
+//    @Query("select d.PLANT_ID,count(d.plant_id) from device d where d.date_create > ?1 group by d.plant_id limit 5")
+//    List<Device> findAllByFor7Day(LocalDate localDate);
+//
+//    @Query("select d from device d order by d.DATE_CREATE desc limit 5")
+//    List<Device> last5Device();
+//
+//    @Query("select d.PLANT_ID,count(d.plant_id) from device d where d.date_create > ?1 group by d.plant_id limit 5")
+//    List<Device> stats(LocalDate localDate);
 }

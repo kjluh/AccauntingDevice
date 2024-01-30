@@ -1,3 +1,4 @@
+drop table if exists plant;
 create table plant (
                        id LONG primary key ,
                        name varchar,
@@ -6,6 +7,7 @@ create table plant (
                        date_add_in_base date
 );
 
+drop table if exists device;
 create table device (
                         id LONG primary key ,
                         ui varchar,
