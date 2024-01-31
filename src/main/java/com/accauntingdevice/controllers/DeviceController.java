@@ -4,6 +4,7 @@ import com.accauntingdevice.dto.DeviceDTO;
 import com.accauntingdevice.entity.Device;
 
 import com.accauntingdevice.service.DeviceService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class DeviceController {
         this.deviceService = deviceService;
     }
 
-    @GetMapping("/{idPlant}")
-    public List<DeviceDTO> getAllPlants(@PathVariable(required = false) Long idPlant,
+    @GetMapping()
+    public List<DeviceDTO> getAllPlants(@RequestParam(required = false) Long idPlant,
                                      @RequestParam(required = false) String nameDirectorChange){
         return deviceService.getAll(idPlant,nameDirectorChange);
     }

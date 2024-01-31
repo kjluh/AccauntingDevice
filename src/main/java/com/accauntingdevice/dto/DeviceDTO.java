@@ -11,7 +11,6 @@ public class DeviceDTO {
     private LocalDate dateCreate;
     private String deviceName;
     private String nameDirectorChange;
-
     private Long plantID;
 
 }

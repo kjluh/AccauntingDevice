@@ -1,7 +1,6 @@
 package com.accauntingdevice.controllers;
 
 import com.accauntingdevice.dto.PlantDTO;
-import com.accauntingdevice.entity.Plant;
 import com.accauntingdevice.service.PlantService;
 import org.springframework.web.bind.annotation.*;
 

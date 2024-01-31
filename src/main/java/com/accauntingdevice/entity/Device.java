@@ -19,7 +19,7 @@ public class Device {
     private String nameDirectorChange;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "plant.id")
+    @JoinColumn(name = "plant_id")
     private Plant plant;
 
     @Override
