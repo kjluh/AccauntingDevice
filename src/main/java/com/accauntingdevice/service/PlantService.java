@@ -18,6 +18,10 @@ public class PlantService {
         this.plantRepository = plantRepository;
     }
 
+    /**
+     * Метод получения всего списка заводов
+     * @return лист заводовДТО
+     */
     public List<PlantDTO> getAll() {
         List<PlantDTO> dtoList = new ArrayList<>();
         for (Plant plant : plantRepository.findAll()) {
@@ -30,6 +34,11 @@ public class PlantService {
         return dtoList;
     }
 
+    /**
+     * Метод сохранения завода в бд
+     * @param plantDTO принимает ДТОзавода
+     * @return ДТОзавода
+     */
     public PlantDTO save(PlantDTO plantDTO) {
         Plant plant = new Plant();
         plant.setAddress(plantDTO.getAddress());
@@ -40,10 +49,19 @@ public class PlantService {
         return plantDTO;
     }
 
+    /**
+     * Метод удаления завода из бд
+     * @param id завода
+     */
     public void delete(Long id) {
         plantRepository.deleteById(id);
     }
 
+    /**
+     * Метод поиска завода по id в бд
+     * @param id id завода
+     * @return завод из бд
+     */
     public Plant find(Long id){
         return plantRepository.findById(id).orElseThrow();
     }
